@@ -1,1 +1,103 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .profile-image img {
+            width: 100%;
+            height: auto;
+        }
+        .bio {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .bio h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .bio p {
+            font-size: 16px;
+            color: #555;
+        }
+        .publications {
+            margin-top: 40px;
+        }
+        .publications h2 {
+            font-size: 20px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .publications ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .publications li {
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Profile Image -->
+        <div class="profile-image">
+            <img src="your-image.jpg" alt="Profile Image">
+        </div>
+
+        <!-- Bio Section -->
+        <div class="bio">
+            <h1>Your Name</h1>
+            <p>Welcome to my personal profile! I am a [Your Profession/Title] specializing in [Your Specialization]. My research interests include [Research Interests]. I am passionate about [Something You Are Passionate About].</p>
+        </div>
+
+        <!-- Publications Section -->
+        <div class="publications">
+            <h2>Publications</h2>
+            <ul>
+                <li>
+                    <strong>Title of Publication 1</strong><br>
+                    <em>Authors: Author1, Author2, Author3</em><br>
+                    <a href="link-to-publication-1.pdf" target="_blank">Read more</a>
+                </li>
+                <li>
+                    <strong>Title of Publication 2</strong><br>
+                    <em>Authors: Author1, Author2, Author3</em><br>
+                    <a href="link-to-publication-2.pdf" target="_blank">Read more</a>
+                </li>
+                <!-- Add more publications as needed -->
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

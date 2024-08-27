@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tina Behrouzi's Personal Profile</title>
-    <!-- Font Awesome for Icons -->
+    <!-- Updated Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-xowB5YX6UIl4e8eMUT+QD/vfO/60Yy3BqDkIyy/IHkGB9AN9vZ6BlvEbn4TlC53g9UvH7KNFtFJv/SGr9Cp1fg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
@@ -41,15 +41,8 @@
             border-radius: 4px;
         }
 
-        .container {
-            width: 80%;
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin-top: 100px;
+        .main-content {
+            padding: 100px 20px 20px 20px; /* Adjust padding to avoid overlap with the fixed header */
         }
 
         .profile-image {
@@ -57,11 +50,11 @@
             height: 150px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 20px auto; /* Added margin for better spacing */
+            margin: 20px auto; /* Centered horizontally */
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #e6e6e6; /* Light grey background to make image more visible */
+            background-color: #e6e6e6; /* Light grey background */
         }
 
         .profile-image img {
@@ -90,7 +83,7 @@
         }
 
         .social-icons a {
-            color: #006666; /* Matching icon color with header color */
+            color: #006666; /* Icon color */
             font-size: 24px;
             margin: 0 10px;
             text-decoration: none;
@@ -162,7 +155,7 @@
         <a href="#awards">Awards</a>
     </div>
 
-    <div class="container" id="home">
+    <div class="main-content" id="home">
         <!-- Profile Image -->
         <div id="intro" class="profile-image">
             <img src="https://raw.githubusercontent.com/Tinbeh97/tinabehrouzi.github.io/main/Profile_image.jpg" alt="Profile Image">

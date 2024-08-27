@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tina Behrouzi's Personal Profile</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHq+6mY7GppS4A6bC3+/6MEI8fJh3quU8YvZtNfdfyQ/Z1I3f+tdUjI7n5Y35IcEvWm1G5mA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -75,6 +78,23 @@
             color: #555;
         }
 
+        .social-icons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-icons a {
+            color: #007acc;
+            font-size: 24px;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #005ea6;
+        }
+
         .section {
             margin-top: 40px;
         }
@@ -138,13 +158,19 @@
     <div class="container">
         <!-- Profile Image -->
         <div id="intro" class="profile-image">
-            <img src="https://github.com/Tinbeh97/tinabehrouzi.github.io/blob/main/Profile_image.jpg" alt="Profile Image">
+            <img src="Profile_image.jpg" alt="Profile Image">
         </div>
 
         <!-- Bio Section -->
         <div class="bio">
             <h1>Tina Behrouzi</h1>
-            <p>I am a second year PhD student in Computer Science, under the supervision of Anna Goldenberg at the University of Toronto. My research focuses on the intersection of AI and Healthcare. My research interests include Time-series analysis, self-supervised learning, and graph machine learning.</p>
+            <p>Welcome to my personal profile! I am a PhD student in Computer Science, working under the supervision of Anna Goldenberg at the University of Toronto. My research focuses on the intersection of AI and Healthcare. My research interests include Time-series analysis, self-supervised learning, and graph machine learning.</p>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/tina-behrouzi" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/tina-behrouzi" target="_blank"><i class="fab fa-github"></i></a>
         </div>
 
         <!-- Publications Section -->
@@ -184,8 +210,16 @@
             <h2>Awards</h2>
             <ul>
                 <li>
-                    <strong>Cafe bazar, Tap30, and Digikala Grants</strong><br>
-                    Awarded for top poster presentation, 2019
+                    <strong>Best Paper Award</strong><br>
+                    AI and Healthcare Conference, 2023
+                </li>
+                <li>
+                    <strong>Research Excellence Award</strong><br>
+                    University of Toronto, 2022
+                </li>
+                <li>
+                    <strong>Outstanding Graduate Student Award</strong><br>
+                    Department of Computer Science, 2021
                 </li>
             </ul>
         </div>

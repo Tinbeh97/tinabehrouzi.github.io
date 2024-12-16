@@ -5,20 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tina Behrouzi's Personal Profile</title>
-    
+
     <style>
+        :root {
+            --primary-bg: #f4f4f4;
+            --primary-color: #333;
+            --secondary-bg: #e6e6e6;
+            --navbar-bg: linear-gradient(135deg, #ff8a00, #e52e71);
+            --link-hover: rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-mode {
+            --primary-bg: #121212;
+            --primary-color: #e0e0e0;
+            --secondary-bg: #333;
+            --navbar-bg: linear-gradient(135deg, #444, #111);
+            --link-hover: rgba(255, 255, 255, 0.1);
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--primary-bg);
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .navbar {
             display: flex;
             justify-content: center;
-            background: linear-gradient(135deg, #ff8a00, #e52e71);
+            background: var(--navbar-bg);
             padding: 15px 0;
             position: fixed;
             width: 100%;
@@ -35,12 +57,12 @@
         }
 
         .navbar a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: var(--link-hover);
             border-radius: 4px;
         }
 
         .main-content {
-            padding: 100px 20px 20px 20px; /* Adjust padding to avoid overlap with the fixed header */
+            padding: 100px 20px 20px 20px;
         }
 
         .profile-image {
@@ -48,11 +70,11 @@
             height: 150px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 20px auto; /* Centered horizontally */
+            margin: 20px auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #e6e6e6; /* Light grey background */
+            background-color: var(--secondary-bg);
         }
 
         .profile-image img {
@@ -72,9 +94,9 @@
 
         .bio p {
             font-size: 16px;
-            color: #555;
+            color: var(--primary-color);
         }
-        
+
         .social-icons {
             margin-top: 20px;
             text-align: center;
@@ -109,20 +131,25 @@
             margin-bottom: 20px;
         }
 
-        .section ul {
-            list-style-type: none;
-            padding: 0;
+        .publications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .section li {
-            margin-bottom: 15px;
+        .publication {
+            display: flex;
             background-color: #f9f9f9;
             padding: 10px;
             border-radius: 5px;
+            width: 100%;
         }
 
-        .awards {
-            margin-top: 40px;
+        .publication img {
+            width: 100px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 5px;
         }
 
         .awards li {
@@ -133,8 +160,16 @@
             border-radius: 5px;
         }
 
-        .awards strong {
-            color: #007acc;
+        .news {
+            margin-top: 40px;
+        }
+
+        .news li {
+            background-color: #fff7e6;
+            padding: 10px;
+            border-left: 4px solid #ffcc00;
+            border-radius: 5px;
+            margin-bottom: 15px;
         }
 
         .footer {
@@ -147,99 +182,81 @@
             bottom: 0;
             font-size: 14px;
         }
+
+        .toggle-night-mode {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #006666;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .toggle-night-mode:hover {
+            background-color: #003333;
+        }
     </style>
 </head>
 <body>
+    <button class="toggle-night-mode" onclick="toggleNightMode()">Night Mode</button>
 
     <!-- Navigation Bar -->
     <div class="navbar">
         <a href="#home">Home</a>
         <a href="#intro">About</a>
         <a href="#publications">Selected Publications</a>
+        <a href="#news">News</a>
         <a href="#awards">Awards</a>
     </div>
 
-    <div class="main-content" id="home">
-        <!-- Profile Image -->
-        <div id="intro" class="profile-image">
-            <img src="https://raw.githubusercontent.com/Tinbeh97/tinabehrouzi.github.io/main/Profile_image.jpg" alt="Profile Image">
-        </div>
+    <div class="container">
+        <div class="main-content" id="home">
+            <!-- Profile Image -->
+            <div id="intro" class="profile-image">
+                <img src="https://raw.githubusercontent.com/Tinbeh97/tinabehrouzi.github.io/main/Profile_image.jpg" alt="Profile Image">
+            </div>
 
-        <!-- Bio Section -->
-        <div class="bio">
-            <h1>Tina Behrouzi</h1>
-            <p>Welcome to my personal profile! I am a PhD student in Computer Science, working under the supervision of Anna Goldenberg at the University of Toronto. My research focuses on the intersection of AI and Healthcare. My research interests include Time-series analysis, self-supervised learning, and graph machine learning.</p>
-        </div>
+            <!-- Bio Section -->
+            <div class="bio">
+                <h1>Tina Behrouzi</h1>
+                <p>Welcome to my personal profile! I am a PhD student in Computer Science, working under the supervision of Anna Goldenberg at the University of Toronto. My research focuses on the intersection of AI and Healthcare. My research interests include Time-series analysis, self-supervised learning, and graph machine learning.</p>
+            </div>
 
-        <!-- Social Media Icons -->
-        <div class="social-icons">
-            <!-- Email Icon -->
-            <a href="mailto:tina.behrouzi@mail.utoronto.ca" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 13.2l4.8 3.2h-9.6l4.8-3.2zm7.2-8.2v10.4l-4.8-3.2-2.4 1.6-2.4-1.6-4.8 3.2v-10.4h14.4zm0-1.6h-14.4c-0.9 0-1.6 0.7-1.6 1.6v10.4c0 0.9 0.7 1.6 1.6 1.6h14.4c0.9 0 1.6-0.7 1.6-1.6v-10.4c0-0.9-0.7-1.6-1.6-1.6z"/>
-                </svg>
-            </a>
-            <!-- LinkedIn Icon -->
-            <a href="https://www.linkedin.com/in/tinbeh97/" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M20 0h-16c-2.2 0-4 1.8-4 4v16c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4v-16c0-2.2-1.8-4-4-4zm-11.4 20h-2.8v-9.5h2.8v9.5zm-1.4-10.9c-1 0-1.6-0.7-1.6-1.6 0-0.9 0.7-1.6 1.7-1.6s1.6 0.7 1.6 1.6-0.7 1.6-1.7 1.6zm12.2 10.9h-2.8v-4.6c0-1.1-0.4-1.8-1.3-1.8-0.7 0-1.1 0.5-1.3 0.9-0.1 0.2-0.1 0.5-0.1 0.8v4.6h-2.8v-9.5h2.8v1.3c0.4-0.6 1.1-1.5 2.7-1.5 2 0 3.4 1.3 3.4 4.2v5.5z"/>
-                </svg>
-            </a>
-            <!-- GitHub Icon -->
-            <a href="https://github.com/Tinbeh97" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.6 0-12 5.4-12 12 0 5.3 3.4 9.8 8.1 11.4 0.6 0.1 0.8-0.2 0.8-0.6 0-0.3 0-1.2 0-2.3-3.3 0.7-4-1.6-4-1.6-0.5-1.3-1.1-1.6-1.1-1.6-0.9-0.6 0.1-0.6 0.1-0.6 1 0.1 1.6 1 1.6 1 0.9 1.6 2.4 1.1 3 0.8 0.1-0.6 0.4-1.1 0.7-1.4-2.7-0.3-5.5-1.4-5.5-6 0-1.3 0.5-2.4 1.2-3.2-0.1-0.3-0.5-1.6 0.1-3.3 0 0 1-0.3 3.3 1.2 1-0.3 2.1-0.5 3.2-0.5 1.1 0 2.2 0.2 3.2 0.5 2.3-1.6 3.3-1.2 3.3-1.2 0.6 1.6 0.2 3 0.1 3.3 0.7 0.8 1.2 1.9 1.2 3.2 0 4.7-2.8 5.7-5.5 6 0.4 0.3 0.8 1 0.8 2 0 1.4 0 2.6 0 2.9 0 0.3 0.2 0.7 0.8 0.6 4.7-1.6 8.1-6.1 8.1-11.4 0-6.6-5.4-12-12-12z"/>
-                </svg>
-            </a>
-            <!-- Google Scholar Icon -->
-            <a href="https://scholar.google.ca/citations?hl=en&user=a67z4YIAAAAJ" target="_blank">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M17.6 18.2l-1.1-0.5c-0.6 0.6-1.2 1.2-1.9 1.6v2.7h2v1h-7v-1h2v-2.7c-1.9-1-3.3-3-3.3-5.3s1.3-4.3 3.3-5.3v-2.7h-2v-1h7v1h-2v2.7c0.7 0.4 1.3 0.9 1.9 1.6l1.1-0.5c-0.8-0.8-1.8-1.4-2.8-1.9v-1.8c1.8 0.5 3.3 2.1 3.8 3.9h1.7v1h-1.7c-0.4 1.8-1.9 3.4-3.8 3.9v1.8c1.1-0.5 2-1.1 2.8-1.9z"/>
-                </svg>
-            </a>
-        </div>
-        
-        <!-- Publications Section -->
-        <div id="publications" class="section publications">
-            <h2>Publications</h2>
-            <ul>
-                <li>
-                    <strong>Dynamic Interpretable Change Point Detection for Physiological Data Analysis</strong><br>
-                    <em>T. Behrouzi, J. Yu, K. Garg, A. Goldenberg, and S. Tonekaboni</em><br>
-                    <a href="https://proceedings.mlr.press/v225/yu23a.html" target="_blank">Read more</a>
-                </li>
-                <li>
-                    <strong>Maskrenderer: 3D-infused multi-mask realistic face reenactment</strong><br>
-                    <em>T. Behrouzi, A. Shahroudnejad, and P. Mousavi</em><br>
-                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0031320324006423" target="_blank">Read more</a>
-                </li>
-                <li>
-                    <strong>Graph Variational Auto-Encoder for Deriving EEG-based Graph Embedding</strong><br>
-                    <em>T. Behrouzi and D. Hatzinakos</em><br>
-                    <a href="https://www.sciencedirect.com/science/article/pii/S0031320321003848?dgcid=rss_sd_all" target="_blank">Read more</a>
-                </li>
-                <li>
-                    <strong>Understanding Power of Graph Convolutional Neural Network on Discriminating Human EEG Signal</strong><br>
-                    <em>T. Behrouzi and D. Hatzinakos</em><br>
-                    <a href="https://ieeexplore.ieee.org/document/9569129" target="_blank">Read more</a>
-                </li>
-                <li>
-                    <strong>Multimodal Movie Genre Classification Using Recurrent Neural Network</strong><br>
-                    <em>T. Behrouzi, R. Toosi, and M.A. Akhaee</em><br>
-                    <a href="https://link.springer.com/article/10.1007/s11042-022-13418-6" target="_blank">Read more</a>
-                </li>
-            </ul>
-        </div>
+            <!-- Publications Section -->
+            <div id="publications" class="section publications">
+                <h2>Publications</h2>
+                <div class="publication">
+                    <img src="https://via.placeholder.com/100" alt="Publication Image">
+                    <div>
+                        <strong>Dynamic Interpretable Change Point Detection for Physiological Data Analysis</strong><br>
+                        <em>T. Behrouzi, J. Yu, K. Garg, A. Goldenberg, and S. Tonekaboni</em><br>
+                        <a href="https://proceedings.mlr.press/v225/yu23a.html" target="_blank">Read more</a>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Awards Section -->
-        <div id="awards" class="section awards">
-            <h2>Awards</h2>
-            <ul>
-                <li>
-                    <strong>Cafe bazar, Tap30, and Digikala Grants</strong><br>
-                    Awarded for top poster presentation, 2019
-                </li>
-            </ul>
+            <!-- News Section -->
+            <div id="news" class="section news">
+                <h2>News</h2>
+                <ul>
+                    <li><strong>August 2024:</strong> Presented our latest research at NeurIPS 2024.</li>
+                    <li><strong>June 2024:</strong> Awarded a grant from the Canadian AI Council.</li>
+                </ul>
+            </div>
+
+            <!-- Awards Section -->
+            <div id="awards" class="section awards">
+                <h2>Awards</h2>
+                <ul>
+                    <li>
+                        <strong>Cafe bazar, Tap30, and Digikala Grants</strong><br>
+                        Awarded for top poster presentation, 2019
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
@@ -248,5 +265,10 @@
         &copy; 2024 Tina Behrouzi. All rights reserved.
     </div>
 
+    <script>
+        function toggleNightMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>

@@ -8,35 +8,38 @@
 
     <style>
         :root {
-            --primary-bg: #f4f4f4;
+            --primary-bg: #f9f9f9;
             --primary-color: #333;
-            --secondary-bg: #e6e6e6;
-            --navbar-bg: linear-gradient(135deg, #ff8a00, #e52e71);
+            --secondary-bg: #eaeaea;
+            --navbar-bg: linear-gradient(135deg, #006666, #003333);
             --link-hover: rgba(255, 255, 255, 0.2);
+            --accent-color: #006666;
         }
-
+    
         body.dark-mode {
             --primary-bg: #121212;
             --primary-color: #e0e0e0;
             --secondary-bg: #333;
             --navbar-bg: linear-gradient(135deg, #444, #111);
             --link-hover: rgba(255, 255, 255, 0.1);
+            --accent-color: #339999;
         }
-
+    
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--primary-bg);
             color: var(--primary-color);
+            line-height: 1.6;
         }
-
+    
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
-
+    
         .navbar {
             display: flex;
             justify-content: center;
@@ -48,26 +51,27 @@
             z-index: 1000;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
+    
         .navbar a {
             color: white;
             text-decoration: none;
-            padding: 15px 20px;
+            padding: 12px 18px;
             font-size: 16px;
+            transition: background 0.3s ease;
         }
-
+    
         .navbar a:hover {
             background-color: var(--link-hover);
             border-radius: 4px;
         }
-
+    
         .main-content {
-            padding: 100px 20px 20px 20px;
+            padding: 120px 20px 20px 20px;
         }
-
+    
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             overflow: hidden;
             margin: 20px auto;
@@ -75,131 +79,82 @@
             justify-content: center;
             align-items: center;
             background-color: var(--secondary-bg);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
+    
         .profile-image img {
             width: 100%;
             height: auto;
         }
-
+    
         .bio {
             text-align: center;
             margin-top: 20px;
         }
-
+    
         .bio h1 {
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 10px;
         }
-
+    
         .bio p {
-            font-size: 16px;
+            font-size: 18px;
             color: var(--primary-color);
-        }
-
-        .social-icons {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .social-icons a {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
             margin: 0 10px;
         }
-
-        .social-icons svg {
-            width: 100%;
-            height: 100%;
-            fill: #006666;
-            transition: fill 0.3s ease;
-        }
-
-        .social-icons a:hover svg {
-            fill: #003333;
-        }
-
-        .section {
-            margin-top: 40px;
-        }
-
+    
         .section h2 {
-            font-size: 24px;
-            border-bottom: 2px solid #ddd;
+            font-size: 26px;
+            border-bottom: 2px solid var(--secondary-bg);
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
-
-        .publications {
+    
+        .publication, .news li, .awards li {
+            background: var(--secondary-bg);
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .publication {
-            display: flex;
-            background-color: #f9f9f9;
-            padding: 10px;
-            border-radius: 5px;
             align-items: center;
+            gap: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-
+    
         .publication img {
-            width: 80px; /* Reduce width */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 80px; /* Ensure it fits the box */
-            object-fit: contain; /* Prevent cropping */
-            margin-right: 20px;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
             border-radius: 5px;
         }
-        .awards li {
-            margin-bottom: 15px;
-            background-color: #e6f7ff;
-            padding: 10px;
-            border-left: 4px solid #007acc;
-            border-radius: 5px;
-        }
-
-        .news {
-            margin-top: 40px;
-        }
-
-        .news li {
-            background-color: #fff7e6;
-            padding: 10px;
-            border-left: 4px solid #ffcc00;
-            border-radius: 5px;
-            margin-bottom: 15px;
-        }
-
+    
         .footer {
             text-align: center;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.05);
-            color: rgba(0, 0, 0, 0.6);
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 15px;
+            background-color: var(--secondary-bg);
+            color: var(--primary-color);
             font-size: 14px;
+            margin-top: 40px;
         }
-
+    
         .toggle-night-mode {
             position: fixed;
             bottom: 20px;
             right: 20px;
             padding: 10px;
-            background-color: #006666;
+            background-color: var(--accent-color);
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
-
+    
         .toggle-night-mode:hover {
-            background-color: #003333;
+            background-color: #004d4d;
         }
     </style>
+
 </head>
 <body>
     <button class="toggle-night-mode" onclick="toggleNightMode()">Night Mode</button>

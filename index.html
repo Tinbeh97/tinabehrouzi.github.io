@@ -116,7 +116,7 @@
 
         .social-icons {
             margin-top: 20px;
-            text-align: center;
+            text-align: left;
         }
 
         .social-icons a {
@@ -188,6 +188,31 @@
     
         .toggle-night-mode:hover {
             background-color: #004d4d;
+        }
+        .awards ul {
+            list-style: none; /* Remove default bullet points */
+            padding: 0;
+        }
+        
+        .awards li {
+            margin-bottom: 15px;
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-left: 4px solid #007acc;
+            border-radius: 5px;
+            line-height: 1.6; /* Add better line spacing */
+        }
+        
+        .awards li strong {
+            display: block; /* Ensure the strong text occupies its own line */
+            margin-bottom: 5px; /* Add spacing after the bold text */
+        }
+        
+        .awards li span {
+            display: block; /* Force the additional text onto a new line */
+            margin-left: 10px; /* Optional: indent for better readability */
+            color: #333; /* Optional: Add a softer color for better contrast */
+            font-size: 14px; /* Optional: slightly smaller text for descriptions */
         }
     </style>
 
@@ -307,20 +332,19 @@
             </div>
 
             <!-- Awards Section -->
-            <div id="awards" class="section awards">
-                <h2>Awards</h2>
+            <div class="awards">
                 <ul>
                     <li>
-                        <strong>Cafe bazar, Tap30, and Digikala Grants</strong><br>
-                        Awarded for top poster presentation, 2019
+                        <strong>Cafe bazar, Tap30, and Digikala Grants</strong>
+                        <span>Awarded for top poster presentation, 2019</span>
                     </li>
                     <li>
-                        <strong>Electrical Engineering Department, University of Tehran</strong><br>
-                        Ranked top 3 out of 129 students, 2018
+                        <strong>Electrical Engineering Department, University of Tehran</strong>
+                        <span>Ranked top 3 out of 129 students, 2018</span>
                     </li>
                     <li>
-                        <strong>Iran's National Elites Foundation Fellowship</strong><br>
-                        Granted for top one research project, 2018
+                        <strong>Iran's National Elites Foundation Fellowship</strong>
+                        <span>Granted for top one research project, 2018</span>
                     </li>
                 </ul>
             </div>

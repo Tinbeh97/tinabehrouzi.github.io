@@ -146,9 +146,10 @@
         }
 
         .publication img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
+            width: 80px; /* Reduce width */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 80px; /* Ensure it fits the box */
+            object-fit: contain; /* Prevent cropping */
             margin-right: 20px;
             border-radius: 5px;
         }
@@ -245,7 +246,7 @@
                     </div>
                 </div>
                 <div class="publication">
-                    <img src="https://raw.githubusercontent.com/Tinbeh97/tinabehrouzi.github.io/main/publication_figures/GNN.png" alt="Publication Image">
+                    <img src="https://raw.githubusercontent.com/Tinbeh97/tinabehrouzi.github.io/main/publication_figures/gnn.png" alt="Publication Image">
                     <div>
                         <strong>Graph Variational Auto-Encoder for Deriving EEG-based Graph Embedding</strong><br>
                         <em>T. Behrouzi and D. Hatzinakos</em><br>
